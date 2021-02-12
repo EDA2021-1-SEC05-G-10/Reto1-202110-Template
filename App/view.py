@@ -51,11 +51,15 @@ while True:
     if int(inputs[0]) == 1:
         print("Cargando información de los archivos ....")
 
+
     elif int(inputs[0]) == 2:
         t1 = time.process_time()
-        print("Se ejecuto req1")
+        print("Se ejecuto req2")
         t2 = time.process_time()
         print(t2-t1)
+
+    elif int(inputs[0]) == 3:
+        print("aca se ejecutará el requerimiento3")
 
     else:
         sys.exit(0)
