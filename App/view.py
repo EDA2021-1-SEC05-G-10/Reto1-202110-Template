@@ -25,6 +25,7 @@ import sys
 import controller
 from DISClib.ADT import list as lt
 assert cf
+import time
 
 
 """
@@ -51,7 +52,10 @@ while True:
         print("Cargando información de los archivos ....")
 
     elif int(inputs[0]) == 2:
-        pass
+        t1 = time.process_time()
+        print("Se ejecuto req1")
+        t2 = time.process_time()
+        print(t2-t1)
 
     else:
         sys.exit(0)
