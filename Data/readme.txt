@@ -1,1 +1,2 @@
-Utilizar los archivos de datos que se encuentran en Sicuaplus
+Nicolas Maldonado
+David Rincon
