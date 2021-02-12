@@ -63,10 +63,16 @@ while True:
         print(t2-t1)
 
     elif int(inputs[0]) == 3:
+        t1 = time.process_time()
         print("aca se ejecutará el requerimiento3")
+        t2 = time.process_time()
+        print(t2-t1)
 
     elif int(inputs[0]) == 4:
+        t1 = time.process_time()
         print("aca se ejecutará el requerimiento4")
+        t2 = time.process_time()
+        print(t2-t1)
 
     else:
         sys.exit(0)
