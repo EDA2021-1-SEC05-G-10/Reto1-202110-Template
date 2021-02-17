@@ -44,7 +44,7 @@ def loadData(catalog):
     estructura de datos
     """
     loadVideos(catalog)
-    sortVideos(catalog)
+
 
 def loadVideos(catalog):
     """
@@ -58,18 +58,3 @@ def loadVideos(catalog):
         model.addVideos(catalog, video)
 
 
-
-# Funciones de ordenamiento
-def sortVideos(catalog):
-    """
-    Ordena los libros por average_rating
-    """
-    model.sortVideos(catalog)
-
-
-# Funciones de consulta sobre el catálogo
-def countVideosByTag(catalog, tag):
-    """
-    Retorna los libros que fueron etiquetados con el tag
-    """
-    return model.countVideosByTag(catalog, tag)

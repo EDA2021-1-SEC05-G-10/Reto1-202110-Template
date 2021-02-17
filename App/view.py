@@ -69,9 +69,9 @@ while True:
         print("Cargando información de los archivos ....")
         catalog = initCatalog()
         loadData(catalog)
-        print("Videos cargados "+ str(lt.size(catalog['videos'])))
+        print("Videos cargados: ", lt.size(catalog['videos']))
         t2 = time.process_time()
-        print(t2-t1)
+        print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")
 
     elif int(inputs[0]) == 2:
         t1 = time.process_time()
