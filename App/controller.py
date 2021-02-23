@@ -37,6 +37,8 @@ def initCatalog(tipo_list):
     catalog = model.newCatalog(tipo_list)
     return catalog
 
+
+
 # Funciones para la carga de datos
 def loadData(catalog):
     """
@@ -57,5 +59,14 @@ def loadVideos(catalog):
     for video in input_file:
         model.addVideos(catalog, video)
 
+def shellsort(catalog):
+    model.catalogo_shellsort(catalog)
+
+def insertionsort(catalog):
+    model.catalogo_insertionsort(catalog)
+
+def selectionsort(catalog):
+    model.catalogo_selectionsort(catalog)
+    
 
 

@@ -28,6 +28,8 @@
 import config as cf
 from DISClib.ADT import list as lt
 from DISClib.Algorithms.Sorting import shellsort as sa
+from DISClib.Algorithms.Sorting import insertionsort as ins
+from DISClib.Algorithms.Sorting import selectionsort as sel
 assert cf
 
 """
@@ -44,7 +46,7 @@ def newCatalog(tipo_list):
     generos y libros. Retorna el catalogo inicializado.
     """
     catalog = {'videos': None,
-               'category': None,}
+               'category': None}
 
     catalog['videos'] = lt.newList(tipo_list)
     catalog['category'] = lt.newList(tipo_list)
@@ -65,6 +67,20 @@ def cmpVideosByViews(video1, video2):
         return True
     else:
         return False
+
+
+
+def catalogo_shellsort(catalog):
+    listas = catalog['videos'].copy()
+    sa.sort(listas,cmpVideosByViews)
+
+def catalogo_insertionsort(catalog):
+    listas = catalog['videos'].copy()
+    ins.sort(listas, cmpVideosByViews)
+
+def catalogo_selectionsort(catalog):
+    listas = catalog['videos'].copy()
+    sel.sort(listas, cmpVideosByViews)
 
 
 

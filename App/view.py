@@ -71,7 +71,7 @@ while True:
         if a == "CARGAR TODO":
             t1 = time.process_time()
             print("Cargando información de los archivos ....")
-            b = "elija si quiere LINKED_LIST O ARRAY_LIST"
+            b = str(input("elija si quiere LINKED_LIST O ARRAY_LIST"))
             catalog = initCatalog(b)
             loadData(catalog)
             print("Videos cargados: ", lt.size(catalog['videos']))
@@ -98,12 +98,20 @@ while True:
             print("Ingrese una opcion valida")
 
 
-
     elif int(inputs[0]) == 2:
         t1 = time.process_time()
-        
+        tipo_ordenamiento = str(input("Desea -SELECTION- -INSERTION- o -SHELL-"))
+        if tipo_ordenamiento == 'SHELL':
+            controller.shellsort(catalog)
+
+        elif tipo_ordenamiento == 'INSERTION':
+            controller.insertionsort(catalog)
+
+        else: 
+            controller.selectionsort(catalog)
+
         t2 = time.process_time()
-        print(t2-t1)
+        print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")
 
     elif int(inputs[0]) == 3:
         t1 = time.process_time()
