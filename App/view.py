@@ -58,9 +58,6 @@ def loadData(catalog):
 catalog = None
 
 
-
-
-
 """
 Menu principal
 """
@@ -78,9 +75,7 @@ while True:
 
     elif int(inputs[0]) == 2:
         t1 = time.process_time()
-        video1 = ("Ingrese el primer video")
-        video2 = ("Ingrese el segundo video")
-        print(controller.compararvideos(video1, video2))
+        
         t2 = time.process_time()
         print(t2-t1)
 

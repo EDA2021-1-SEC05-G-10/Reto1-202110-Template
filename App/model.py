@@ -44,13 +44,10 @@ def newCatalog(tipo_list):
     generos y libros. Retorna el catalogo inicializado.
     """
     catalog = {'video': None,
-               'category': None,
-               'views': None}
+               'category': None,}
 
     catalog['videos'] = lt.newList(tipo_list)
     catalog['category'] = lt.newList(tipo_list)
-    catalog['views'] = lt.newList(tipo_list,
-                                    cmpfunction= cmpVideosByViews)
     return catalog
 
 def addVideos(catalog, video):
