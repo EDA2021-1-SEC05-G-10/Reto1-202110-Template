@@ -38,16 +38,16 @@ operación solicitada
 def printMenu():
     print("Bienvenido")
     print("1- Cargar información en el catálogo")
-    print("2- Consultar los videos por trending")
+    print("2- Consultar views entre dos videos")
     print("3 - Consultar videos por pais")
     print("4 - Consultar los videos por categoria")
 
 
-def initCatalog(a):
+def initCatalog():
     """
     Inicializa el catalogo de libros
     """
-    return controller.initCatalog(a)
+    return controller.initCatalog()
 
 def loadData(catalog):
     """
@@ -56,6 +56,9 @@ def loadData(catalog):
     controller.loadData(catalog)
 
 catalog = None
+
+
+
 
 
 """
@@ -67,8 +70,7 @@ while True:
     if int(inputs[0]) == 1:
         t1 = time.process_time()
         print("Cargando información de los archivos ....")
-        tipo_list = str(input("Ingrese si quiere un ARRAY_LIST o LINKED_LIST "))
-        catalog = initCatalog(tipo_list)
+        catalog = initCatalog()
         loadData(catalog)
         print("Videos cargados: ", lt.size(catalog['videos']))
         t2 = time.process_time()
@@ -76,7 +78,9 @@ while True:
 
     elif int(inputs[0]) == 2:
         t1 = time.process_time()
-        print("Se ejecuto req2")
+        video1 = ("Ingrese el primer video")
+        video2 = ("Ingrese el segundo video")
+        print(controller.compararvideos(video1, video2))
         t2 = time.process_time()
         print(t2-t1)
 
