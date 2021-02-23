@@ -43,11 +43,11 @@ def printMenu():
     print("4 - Consultar los videos por categoria")
 
 
-def initCatalog():
+def initCatalog(b):
     """
     Inicializa el catalogo de libros
     """
-    return controller.initCatalog()
+    return controller.initCatalog(b)
 
 def loadData(catalog):
     """
@@ -57,6 +57,8 @@ def loadData(catalog):
 
 catalog = None
 
+def tamanio_muestra(lst, pos, numelem):
+    return lt.subList(lst, pos, numelem)
 
 """
 Menu principal
@@ -65,13 +67,37 @@ while True:
     printMenu()
     inputs = input('Seleccione una opción para continuar\n')
     if int(inputs[0]) == 1:
-        t1 = time.process_time()
-        print("Cargando información de los archivos ....")
-        catalog = initCatalog()
-        loadData(catalog)
-        print("Videos cargados: ", lt.size(catalog['videos']))
-        t2 = time.process_time()
-        print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")
+        a = str(input("Elija -CARGAR TODO- o -CARGAR UNA PARTE-"))
+        if a == "CARGAR TODO":
+            t1 = time.process_time()
+            print("Cargando información de los archivos ....")
+            b = "elija si quiere LINKED_LIST O ARRAY_LIST"
+            catalog = initCatalog(b)
+            loadData(catalog)
+            print("Videos cargados: ", lt.size(catalog['videos']))
+            t2 = time.process_time()
+            print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")
+
+        elif a == "CARGAR UNA PARTE":
+            t1 = time.process_time()
+            b = str(input("elija si quiere LINKED_LIST O ARRAY_LIST"))
+            numero_datos = int(input("Ingrese la cantidad de datos que desea cargar"))
+            catalog = initCatalog(b)
+            loadData(catalog)
+            c = int(input("Elija la posicion desde la que quiere contar"))
+
+            if numero_datos > lt.size(catalog['videos']):
+                print("El número de elementos superó el tamaño de la lista")
+            else:
+                lista_nueva = tamanio_muestra(catalog['videos'], c, numero_datos)
+                print("Videos cargados: ", lt.size(lista_nueva))
+                t2 = time.process_time()
+                print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")
+
+        else:
+            print("Ingrese una opcion valida")
+
+
 
     elif int(inputs[0]) == 2:
         t1 = time.process_time()

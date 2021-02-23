@@ -43,7 +43,7 @@ def newCatalog(tipo_list):
     una lista vacia para los generos y una lista vacia para la asociación
     generos y libros. Retorna el catalogo inicializado.
     """
-    catalog = {'video': None,
+    catalog = {'videos': None,
                'category': None,}
 
     catalog['videos'] = lt.newList(tipo_list)
