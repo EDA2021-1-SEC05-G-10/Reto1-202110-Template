@@ -36,22 +36,40 @@ los mismos.
 """
 
 # Construccion de modelos
-def newCatalog():
+def newCatalog(tipo_list):
     """
     Inicializa el catálogo de libros. Crea una lista vacia para guardar
     todos los libros, adicionalmente, crea una lista vacia para los autores,
     una lista vacia para los generos y una lista vacia para la asociación
     generos y libros. Retorna el catalogo inicializado.
     """
-    catalog = {'video': None
-               }
+    catalog = {'video': None,
+               'category': None,
+               'views': None}
 
-    catalog['videos'] = lt.newList()
+    catalog['videos'] = lt.newList(tipo_list)
+    catalog['category'] = lt.newList(tipo_list)
+    catalog['views'] = lt.newList(tipo_list,
+                                    cmpfunction= cmpVideosByViews)
     return catalog
 
 def addVideos(catalog, video):
     # Se adiciona el libro a la lista de libros
     lt.addLast(catalog['videos'], video)
+
+def cmpVideosByViews(video1, video2):
+    """
+    Devuelve verdadero (True) si los 'views' de video1 son menores que los del video2
+    Args:
+    video1: informacion del primer video que incluye su valor 'views'
+    video2: informacion del segundo video que incluye su valor 'views'
+    """
+    if (float(video1['views']) > float(video2['views'])):
+        return True
+    else:
+        return False
+
+
 
 
 

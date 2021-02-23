@@ -43,11 +43,11 @@ def printMenu():
     print("4 - Consultar los videos por categoria")
 
 
-def initCatalog():
+def initCatalog(a):
     """
     Inicializa el catalogo de libros
     """
-    return controller.initCatalog()
+    return controller.initCatalog(a)
 
 def loadData(catalog):
     """
@@ -67,7 +67,8 @@ while True:
     if int(inputs[0]) == 1:
         t1 = time.process_time()
         print("Cargando información de los archivos ....")
-        catalog = initCatalog()
+        tipo_list = str(input("Ingrese si quiere un ARRAY_LIST o LINKED_LIST "))
+        catalog = initCatalog(tipo_list)
         loadData(catalog)
         print("Videos cargados: ", lt.size(catalog['videos']))
         t2 = time.process_time()
