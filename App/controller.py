@@ -58,3 +58,6 @@ def loadVideos(catalog):
         model.addVideos(catalog, video)
 
 
+def compararvideos(video1, video2):
+    comparacion = model.cmpVideosByViews(video1, video2)
+    return comparacion
