@@ -54,7 +54,7 @@ def loadVideos(catalog):
     cada uno de ellos, se crea en la lista de autores, a dicho autor y una
     referencia al libro que se esta procesando.
     """
-    videos = cf.data_dir + 'videos-small.csv'
+    videos = cf.data_dir + 'videos-large.csv'
     input_file = csv.DictReader(open(videos, encoding='utf-8'))
     for video in input_file:
         model.addVideos(catalog, video)

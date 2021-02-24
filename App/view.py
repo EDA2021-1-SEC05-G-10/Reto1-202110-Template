@@ -84,12 +84,11 @@ while True:
             numero_datos = int(input("Ingrese la cantidad de datos que desea cargar"))
             catalog = initCatalog(b)
             loadData(catalog)
-            c = int(input("Elija la posicion desde la que quiere contar"))
 
             if numero_datos > lt.size(catalog['videos']):
                 print("El número de elementos superó el tamaño de la lista")
             else:
-                lista_nueva = tamanio_muestra(catalog['videos'], c, numero_datos)
+                lista_nueva = tamanio_muestra(catalog['videos'], 1, numero_datos)
                 print("Videos cargados: ", lt.size(lista_nueva))
                 t2 = time.process_time()
                 print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")
@@ -102,13 +101,13 @@ while True:
         t1 = time.process_time()
         tipo_ordenamiento = str(input("Desea -SELECTION- -INSERTION- o -SHELL-"))
         if tipo_ordenamiento == 'SHELL':
-            controller.shellsort(catalog)
+            controller.shellsort(lista_nueva)
 
         elif tipo_ordenamiento == 'INSERTION':
-            controller.insertionsort(catalog)
+            controller.insertionsort(lista_nueva)
 
         else: 
-            controller.selectionsort(catalog)
+            controller.selectionsort(lista_nueva)
 
         t2 = time.process_time()
         print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")

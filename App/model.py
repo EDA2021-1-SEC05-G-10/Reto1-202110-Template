@@ -38,6 +38,8 @@ los mismos.
 """
 
 # Construccion de modelos
+
+
 def newCatalog(tipo_list):
     """
     Inicializa el catálogo de libros. Crea una lista vacia para guardar
@@ -46,11 +48,26 @@ def newCatalog(tipo_list):
     generos y libros. Retorna el catalogo inicializado.
     """
     catalog = {'videos': None,
-               'category': None}
+               'category': None,
+               }
 
-    catalog['videos'] = lt.newList(tipo_list)
-    catalog['category'] = lt.newList(tipo_list)
+    catalog['videos'] = lt.newList(tipo_list,cmpfunction=comparevideos)
+    catalog['category'] = lt.newList(tipo_list,cmpfunction=comparecategories)
     return catalog
+
+
+
+def comparevideos(id1, id2):
+    if (id1.lower() in id2['video_id'].lower()):
+        return 0
+    return -1
+
+def comparecategories(category1, category):
+    if (category1.lower() in category['category_id'].lower()):
+        return 0
+    return -1
+
+
 
 def addVideos(catalog, video):
     # Se adiciona el libro a la lista de libros
@@ -71,15 +88,16 @@ def cmpVideosByViews(video1, video2):
 
 
 def catalogo_shellsort(catalog):
-    listas = catalog['videos'].copy()
+    listas = catalog.copy()
     sa.sort(listas,cmpVideosByViews)
 
+
 def catalogo_insertionsort(catalog):
-    listas = catalog['videos'].copy()
+    listas = catalog.copy()
     ins.sort(listas, cmpVideosByViews)
 
 def catalogo_selectionsort(catalog):
-    listas = catalog['videos'].copy()
+    listas = catalog.copy()
     sel.sort(listas, cmpVideosByViews)
 
 
