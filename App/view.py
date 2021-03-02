@@ -107,7 +107,7 @@ while True:
             controller.quicksort(lista_nueva)
 
         else: 
-            print("Ingrese el nombre de un algoritmo de ordenamiento válido")
+            print("Ingrese el nombre de un algoritmo de ordenamiento v")
 
         t2 = time.process_time()
         print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")
