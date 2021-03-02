@@ -30,6 +30,8 @@ from DISClib.ADT import list as lt
 from DISClib.Algorithms.Sorting import shellsort as sa
 from DISClib.Algorithms.Sorting import insertionsort as ins
 from DISClib.Algorithms.Sorting import selectionsort as sel
+from DISClib.Algorithms.Sorting import mergesort as mer
+from DISClib.Algorithms.Sorting import quicksort as qui
 assert cf
 
 """
@@ -99,6 +101,14 @@ def catalogo_insertionsort(catalog):
 def catalogo_selectionsort(catalog):
     listas = catalog.copy()
     sel.sort(listas, cmpVideosByViews)
+
+def catalogo_mergesort(catalog):
+    listas = catalog.copy()
+    mer.sort(listas, cmpVideosByViews)
+
+def catalogo_quicksort(catalog):
+    listas = catalog.copy()
+    qui.sort(listas, cmpVideosByViews)
 
 
 

@@ -99,15 +99,15 @@ while True:
 
     elif int(inputs[0]) == 2:
         t1 = time.process_time()
-        tipo_ordenamiento = str(input("Desea -SELECTION- -INSERTION- o -SHELL-"))
-        if tipo_ordenamiento == 'SHELL':
-            controller.shellsort(lista_nueva)
+        tipo_ordenamiento = str(input("Desea -MERGE- o -QUICK-"))
+        if tipo_ordenamiento == 'MERGE':
+            controller.mergesort(lista_nueva)
 
-        elif tipo_ordenamiento == 'INSERTION':
-            controller.insertionsort(lista_nueva)
+        elif tipo_ordenamiento == 'QUICK':
+            controller.quicksort(lista_nueva)
 
         else: 
-            controller.selectionsort(lista_nueva)
+            print("Ingrese el nombre de un algoritmo de ordenamiento válido")
 
         t2 = time.process_time()
         print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")

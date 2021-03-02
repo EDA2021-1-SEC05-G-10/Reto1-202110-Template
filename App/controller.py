@@ -67,6 +67,12 @@ def insertionsort(catalog):
 
 def selectionsort(catalog):
     model.catalogo_selectionsort(catalog)
+
+def mergesort(catalog):
+    model.catalogo_mergesort(catalog)
+
+def quicksort(catalog):
+    model.catalogo_quicksort(catalog)
     
 
 
