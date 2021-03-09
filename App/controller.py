@@ -23,7 +23,7 @@
 import config as cf
 import model
 import csv
-
+import string
 
 """
 El controlador se encarga de mediar entre la vista y el modelo.
@@ -64,8 +64,8 @@ def loadCategories():
     category = cf.data_dir + 'category-id.csv'
     input_file = csv.DictReader(open(category, encoding='utf-8'))
     for categoria in input_file:
-        print(categoria['id\tname'])
-
+        nombre = categoria['id\tname'].translate({ord(c): None for c in string.whitespace})
+        print(nombre)
 
 
 def shellsort(catalog):

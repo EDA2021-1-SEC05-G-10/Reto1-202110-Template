@@ -87,6 +87,12 @@ def cmpVideosByViews(video1, video2):
     else:
         return False
 
+def n_videos(category_name, country, num_vids, lista):
+    contador = 0
+    while contador < len(lista):
+        elemento = lt.getElement(lista, contador)
+        if elemento['country'] == country: 
+            contador += 1
 
 
 def catalogo_shellsort(catalog):
