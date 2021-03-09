@@ -55,10 +55,16 @@ def loadData(catalog):
     """
     controller.loadData(catalog)
 
+def loadCategories():
+    controller.loadCategories()
+
 catalog = None
 
 def tamanio_muestra(lst, pos, numelem):
     return lt.subList(lst, pos, numelem)
+
+
+
 
 """
 Menu principal
@@ -74,7 +80,17 @@ while True:
             b = str(input("elija si quiere LINKED_LIST O ARRAY_LIST"))
             catalog = initCatalog(b)
             loadData(catalog)
+            video = lt.firstElement(catalog['videos'])
             print("Videos cargados: ", lt.size(catalog['videos']))
+            print("primer video: ", "titulo: ", video["title"]) 
+            print("channel_title: ", video['channel_title'])
+            print("trending_date: ", video["trending_date"]) 
+            print("country: ", video["country"]) 
+            print("views: ", video["views"]) 
+            print("likes: ", video["likes"]) 
+            print("dislikes: ", video["dislikes"])
+            print("categorias cargadas: ")
+            loadCategories()
             t2 = time.process_time()
             print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")
 

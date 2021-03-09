@@ -39,6 +39,7 @@ def initCatalog(tipo_list):
 
 
 
+
 # Funciones para la carga de datos
 def loadData(catalog):
     """
@@ -58,6 +59,14 @@ def loadVideos(catalog):
     input_file = csv.DictReader(open(videos, encoding='utf-8'))
     for video in input_file:
         model.addVideos(catalog, video)
+
+def loadCategories():
+    category = cf.data_dir + 'category-id.csv'
+    input_file = csv.DictReader(open(category, encoding='utf-8'))
+    for categoria in input_file:
+        print(categoria['id\tname'])
+
+
 
 def shellsort(catalog):
     model.catalogo_shellsort(catalog)
