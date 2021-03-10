@@ -59,12 +59,12 @@ def loadData(catalog):
 def loadCategories():
     return controller.loadCategories()
 
+def showCategories():
+    return controller.showCategories()
 catalog = None
 
 def tamanio_muestra(lst, pos, numelem):
     return lt.subList(lst, pos, numelem)
-
-
 
 
 """
@@ -91,7 +91,7 @@ while True:
             print("likes: ", video["likes"]) 
             print("dislikes: ", video["dislikes"])
             print("categorias cargadas: ")
-            loadCategories()
+            showCategories()
             t2 = time.process_time()
             print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")
 
@@ -130,16 +130,13 @@ while True:
         print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")
 
     elif int(inputs[0]) == 3:
-        t1 = time.process_time()
-        catalog = initCatalog("LINKED_LIST")
-        loadData(catalog)
         category_name = str(input("ingrese el nombre de la categoria que desea buscar")).translate({ord(c): None for c in string.whitespace})
         country = str(input("ingrese el nombre del pais por el que desea buscar"))
         num_vids = int(input("ingrese el numero de videos que desea listar"))
-        requerimiento1 = controller.req1(category_name, country, num_vids, catalog['videos'], loadCategories())
-        print(requerimiento1)
+        a = controller.req1(category_name, country, num_vids, catalog['videos'], loadCategories())
+        print(a)
         t2 = time.process_time()
-        print(t2-t1)
+        print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")
 
     elif int(inputs[0]) == 4:
         t1 = time.process_time()

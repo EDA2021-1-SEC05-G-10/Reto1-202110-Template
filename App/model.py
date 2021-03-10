@@ -34,6 +34,7 @@ from DISClib.Algorithms.Sorting import mergesort as mer
 from DISClib.Algorithms.Sorting import quicksort as qui
 assert cf
 
+
 """
 Se define la estructura de un catálogo de videos. El catálogo tendrá dos listas, una para los videos, otra para las categorias de
 los mismos.
@@ -90,19 +91,17 @@ def cmpVideosByViews(video1, video2):
 
 
 
-def n_videos(category_name, country, num_vids, lista, categorias):
+def n_videos(category_name, country, num_vids, lista, categorias)->list:
     contador = 0
     resultado = []
-    
     for i in categorias:
         if categorias[i] == category_name:
             numero_categoria = int(i)
 
-    while contador < lt.size(lista):
+    while contador <= lt.size(lista):
         elemento = lt.getElement(lista, contador)
         menor = 10000000000000000
         contador2 = 0
-
         if (str(elemento['country']) == country) and numero_categoria == int(elemento['category_id']): 
             if len(resultado) < num_vids:
                 resultado.append({"trending_date": elemento["trending_date"], "title": elemento["title"], "channel title": elemento["channel_title"], 
@@ -118,12 +117,10 @@ def n_videos(category_name, country, num_vids, lista, categorias):
                     resultado.append({"trending_date": elemento["trending_date"], "title": elemento["title"], "channel title": elemento["channel_title"], 
                     "publish time": elemento["publish_time"], "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"]})
                     print(resultado)
-
         contador += 1
-        
-
-
     return resultado
+
+
 
 
 def catalogo_shellsort(catalog):

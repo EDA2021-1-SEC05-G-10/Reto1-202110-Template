@@ -60,6 +60,13 @@ def loadVideos(catalog):
     for video in input_file:
         model.addVideos(catalog, video)
 
+def showCategories():
+    category = cf.data_dir + 'category-id.csv'
+    input_file = csv.DictReader(open(category, encoding='utf-8'))
+    for categoria in input_file:
+        nombre = categoria['id\tname']
+        print(nombre)
+
 def loadCategories():
     category = cf.data_dir + 'category-id.csv'
     input_file = csv.DictReader(open(category, encoding='utf-8'))
@@ -67,14 +74,14 @@ def loadCategories():
     for categoria in input_file:
         nombre = categoria['id\tname'].translate({ord(c): None for c in string.whitespace})
         resultado = ''.join([i for i in nombre if not i.isdigit()])
-        print(nombre)
         numeric_filter = filter(str.isdigit, nombre)
         numeric_string = "".join(numeric_filter)
         diccionario[numeric_string] = resultado
     return diccionario
 
 def req1(category_name, country, num_vids, lista, categorias):
-    return model.n_videos(category_name, country, num_vids, lista, categorias)
+    a = model.n_videos(category_name, country, num_vids, lista, categorias)
+    return a 
 
 
 
