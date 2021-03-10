@@ -145,35 +145,47 @@ def n_videos_by_tag(tag, country, num_vids, lista)->list:
                     "publish time": elemento["publish_time"], "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"], "tags": elemento["tags"]})
     return resultado
 def video_trending_categoria(category_name, lista, categorias)->dict:
-    resultado = {}
     for i in categorias:
         if categorias[i] == category_name:
             numero_categoria = int(i)
-            
-    diccionario_dias = {}
-    aux =[]       
+
+    mayor = 0 
+    aux =[] 
+    dict_final = {}      
     iterador = it.newIterator(lista)
+    contador2 = 0
     while it.hasNext(iterador):
         elemento = it.next(iterador)
+        centinela = True  
+        contador = 0     
 
-        
         if numero_categoria == int(elemento['category_id']):
-            contador_dias = 0
-            for i in elemento:
-                if i == str(elemento(['title']):
-                    if str(elemento(['title']) in diccionario_dias):
-                        dias = contador_dias
-                    aux.append(diccionario_dias[str(elemento['title'])] = dias)
-                else:
-                    dias = contador_dias
-                    (diccionario_dias[str(elemento['title'])]) = dias += 1
+            while contador < len(aux):
+                if (elemento['title']== aux[contador]["title"]):
+                    aux[contador]["numero de dias"] += 1
+                    centinela = False
+                contador +=1
 
-             
+            if centinela == True:
+                aux.append({"title": elemento["title"], "channel_title": elemento["channel_title"], 
+                "category_id": elemento["category_id"], "numero de dias": 1, "dates": str(elemento["trending_date"])})
 
-    resultado["title"] = titulo
-    resultado["channel_title"] = titulo_canal
-    resultado["category_id"] = numero_categoria
-    resultado["Days"] = dias
+    while contador2 < len(aux):
+        if int(aux[contador2]["numero de dias"]) > mayor:
+            dict_final["title"] = aux[contador2]["title"]
+            dict_final["channel_title"] = aux[contador2]["channel_title"]
+            dict_final["category_id"] = numero_categoria
+            dict_final["numero de dias"] = aux[contador2]["numero de dias"]
+            mayor = int(aux[contador2]["numero de dias"])
+
+        contador2 +=1
+    return dict_final
+
+
+
+
+
+
 
 
 def catalogo_shellsort(catalog):
