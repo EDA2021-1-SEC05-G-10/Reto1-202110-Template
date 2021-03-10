@@ -146,7 +146,6 @@ def n_videos_by_tag(tag, country, num_vids, lista)->list:
     return resultado
 
 def video_trending_pais(country, lista,)->dict:
-
     mayor = 0 
     aux =[] 
     dict_final = {}      
@@ -159,22 +158,22 @@ def video_trending_pais(country, lista,)->dict:
 
         if (str(elemento['country'])) == country:
             while contador < len(aux):
-                if (elemento['title']== aux[contador]["title"]):
+                if (elemento['video_id']== aux[contador]["video_id"]):
                     aux[contador]["numero de dias"] += 1
                     centinela = False
                 contador +=1
 
             if centinela == True:
                 aux.append({"title": elemento["title"], "channel_title": elemento["channel_title"], 
-                "country": elemento["country"], "numero de dias": 1})
+                "country": elemento["country"], "video_id": elemento["video_id"], "numero de dias": 1})
 
     while contador2 < len(aux):
-        if int(aux[contador2]["numero de dias"]) > mayor:
+        if int(aux[contador2]["numero de dias"]) >= mayor:
             dict_final["title"] = aux[contador2]["title"]
             dict_final["channel_title"] = aux[contador2]["channel_title"]
             dict_final["country"] = country
             dict_final["numero de dias"] = aux[contador2]["numero de dias"]
-            mayor = int(aux[contador2]["numero de dias"])
+            mayor = aux[contador2]["numero de dias"]
 
         contador2 +=1
     return dict_final 
