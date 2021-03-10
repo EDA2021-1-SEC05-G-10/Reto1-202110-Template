@@ -87,12 +87,43 @@ def cmpVideosByViews(video1, video2):
     else:
         return False
 
-def n_videos(category_name, country, num_vids, lista):
+
+
+
+def n_videos(category_name, country, num_vids, lista, categorias):
     contador = 0
-    while contador < len(lista):
+    resultado = []
+    
+    for i in categorias:
+        if categorias[i] == category_name:
+            numero_categoria = int(i)
+
+    while contador < lt.size(lista):
         elemento = lt.getElement(lista, contador)
-        if elemento['country'] == country: 
-            contador += 1
+        menor = 10000000000000000
+        contador2 = 0
+
+        if (str(elemento['country']) == country) and numero_categoria == int(elemento['category_id']): 
+            if len(resultado) < num_vids:
+                resultado.append({"trending_date": elemento["trending_date"], "title": elemento["title"], "channel title": elemento["channel_title"], 
+                "publish time": elemento["publish_time"], "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"]})
+            else:
+                while contador2 < len(resultado):
+                    if float(resultado[contador2]["views"]) < menor:
+                        menor = float(resultado[contador2]["views"])
+                        posicion = contador2
+                    contador2 += 1
+                if float(elemento['views']) > menor:
+                    resultado.pop(posicion)
+                    resultado.append({"trending_date": elemento["trending_date"], "title": elemento["title"], "channel title": elemento["channel_title"], 
+                    "publish time": elemento["publish_time"], "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"]})
+                    print(resultado)
+
+        contador += 1
+        
+
+
+    return resultado
 
 
 def catalogo_shellsort(catalog):

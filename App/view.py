@@ -26,6 +26,7 @@ import controller
 from DISClib.ADT import list as lt
 assert cf
 import time
+import string
 
 
 """
@@ -39,7 +40,7 @@ def printMenu():
     print("Bienvenido")
     print("1- Cargar información en el catálogo")
     print("2- Consultar tiempo de carga de videos")
-    print("3 - Consultar videos por pais")
+    print("3 - Consultar n videos con mas views (requerimiento 1)")
     print("4 - Consultar los videos por categoria")
 
 
@@ -56,7 +57,7 @@ def loadData(catalog):
     controller.loadData(catalog)
 
 def loadCategories():
-    controller.loadCategories()
+    return controller.loadCategories()
 
 catalog = None
 
@@ -130,7 +131,13 @@ while True:
 
     elif int(inputs[0]) == 3:
         t1 = time.process_time()
-        print("aca se ejecutará el requerimiento3")
+        catalog = initCatalog("LINKED_LIST")
+        loadData(catalog)
+        category_name = str(input("ingrese el nombre de la categoria que desea buscar")).translate({ord(c): None for c in string.whitespace})
+        country = str(input("ingrese el nombre del pais por el que desea buscar"))
+        num_vids = int(input("ingrese el numero de videos que desea listar"))
+        requerimiento1 = controller.req1(category_name, country, num_vids, catalog['videos'], loadCategories())
+        print(requerimiento1)
         t2 = time.process_time()
         print(t2-t1)
 
