@@ -127,21 +127,24 @@ def video_trending_categoria(category_name, lista, categorias)->dict:
         if categorias[i] == category_name:
             numero_categoria = int(i)
             
+    diccionario_dias = {}
+    aux =[]       
     iterador = it.newIterator(lista)
     while it.hasNext(iterador):
         elemento = it.next(iterador)
-        diccionario_dias = {}
-        aux =[]
+
         
         if numero_categoria == int(elemento['category_id']):
             contador_dias = 0
             for i in elemento:
-                if str(elemento(['title']) not in diccionario_dias):
-                    aux.append(diccionario_dias[str(elemento['title'])] = contador_dias)
+                if i == str(elemento(['title']):
+                    if str(elemento(['title']) in diccionario_dias):
+                        dias = contador_dias
+                    aux.append(diccionario_dias[str(elemento['title'])] = dias)
                 else:
-                    contador_dias += 1
-            else:
-                aux.append(diccionario_dias[elemento['title']] = contador_dias += 1)
+                    dias = contador_dias
+                    (diccionario_dias[str(elemento['title'])]) = dias += 1
+
              
 
     resultado["title"] = titulo
