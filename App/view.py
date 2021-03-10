@@ -130,6 +130,7 @@ while True:
         print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")
 
     elif int(inputs[0]) == 3:
+        t1 = time.process_time()
         category_name = str(input("ingrese el nombre de la categoria que desea buscar")).translate({ord(c): None for c in string.whitespace})
         country = str(input("ingrese el nombre del pais por el que desea buscar"))
         num_vids = int(input("ingrese el numero de videos que desea listar"))

@@ -33,6 +33,8 @@ from DISClib.Algorithms.Sorting import selectionsort as sel
 from DISClib.Algorithms.Sorting import mergesort as mer
 from DISClib.Algorithms.Sorting import quicksort as qui
 assert cf
+from DISClib.DataStructures import listiterator as it
+import math
 
 
 """
@@ -92,15 +94,16 @@ def cmpVideosByViews(video1, video2):
 
 
 def n_videos(category_name, country, num_vids, lista, categorias)->list:
-    contador = 0
     resultado = []
     for i in categorias:
         if categorias[i] == category_name:
             numero_categoria = int(i)
 
-    while contador <= lt.size(lista):
-        elemento = lt.getElement(lista, contador)
-        menor = 10000000000000000
+    
+    iterador = it.newIterator(lista)
+    while it.hasNext(iterador):
+        elemento = it.next(iterador)
+        menor = math.inf
         contador2 = 0
         if (str(elemento['country']) == country) and numero_categoria == int(elemento['category_id']): 
             if len(resultado) < num_vids:
@@ -116,8 +119,6 @@ def n_videos(category_name, country, num_vids, lista, categorias)->list:
                     resultado.pop(posicion)
                     resultado.append({"trending_date": elemento["trending_date"], "title": elemento["title"], "channel title": elemento["channel_title"], 
                     "publish time": elemento["publish_time"], "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"]})
-                    print(resultado)
-        contador += 1
     return resultado
 
 
