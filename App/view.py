@@ -157,7 +157,9 @@ while True:
     elif int(inputs[0]) == 6:
         t1 = time.process_time()
         tag = str(input("ingrese el nombre del tag que desea buscar"))
-        a = controller.req4(tag, catalog['videos'])
+        country = str(input("ingrese el nombre del pais por el que desea buscar"))
+        num_vids = int(input("ingrese el numero de videos que desea listar"))
+        a = controller.req4(tag, country, num_vids, catalog['videos'])
         print(a)
         t2 = time.process_time()
         print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")

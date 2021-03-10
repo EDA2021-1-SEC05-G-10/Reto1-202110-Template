@@ -121,7 +121,7 @@ def n_videos_by_category(category_name, country, num_vids, lista, categorias)->l
                     "publish time": elemento["publish_time"], "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"]})
     return resultado
 
-def n_videos_by_tag(tag, lista)->list:
+def n_videos_by_tag(tag, country, num_vids, lista)->list:
     resultado = []
     
     iterador = it.newIterator(lista)
@@ -144,7 +144,6 @@ def n_videos_by_tag(tag, lista)->list:
                     resultado.append({"title": elemento["title"], "channel title": elemento["channel_title"], 
                     "publish time": elemento["publish_time"], "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"], "tags": elemento["tags"]})
     return resultado
-
 def video_trending_categoria(category_name, lista, categorias)->dict:
     resultado = {}
     for i in categorias:

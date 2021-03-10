@@ -91,7 +91,7 @@ def req3(category_name, lista, categorias):
     a = model.video_trending_categoria(category_name, lista, categorias)
     return a
 
-def req4(tag, lista):
+def req4(tag, country, num_vids, lista):
     a = model.n_videos_by_tag(tag, lista)
     return a 
 
