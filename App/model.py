@@ -93,7 +93,7 @@ def cmpVideosByViews(video1, video2):
 
 
 
-def n_videos(category_name, country, num_vids, lista, categorias)->list:
+def n_videos_by_category(category_name, country, num_vids, lista, categorias)->list:
     resultado = []
     for i in categorias:
         if categorias[i] == category_name:
@@ -119,6 +119,30 @@ def n_videos(category_name, country, num_vids, lista, categorias)->list:
                     resultado.pop(posicion)
                     resultado.append({"trending_date": elemento["trending_date"], "title": elemento["title"], "channel title": elemento["channel_title"], 
                     "publish time": elemento["publish_time"], "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"]})
+    return resultado
+
+def n_videos_by_tag(tag, lista)->list:
+    resultado = []
+    
+    iterador = it.newIterator(lista)
+    while it.hasNext(iterador):
+        elemento = it.next(iterador)
+        menor = math.inf
+        contador2 = 0
+        if (str(elemento['tag']) == tag): 
+            if len(resultado) < num_vids:
+                resultado.append({"title": elemento["title"], "channel title": elemento["channel_title"], 
+                "publish time": elemento["publish_time"], "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"], "tags": elemento["tags"]})
+            else:
+                while contador2 < len(resultado):
+                    if float(resultado[contador2]["likes"]) < menor:
+                        menor = float(resultado[contador2]["likes"])
+                        posicion = contador2
+                    contador2 += 1
+                if float(elemento['likes']) > menor:
+                    resultado.pop(posicion)
+                    resultado.append({"title": elemento["title"], "channel title": elemento["channel_title"], 
+                    "publish time": elemento["publish_time"], "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"], "tags": elemento["tags"]})
     return resultado
 
 def video_trending_categoria(category_name, lista, categorias)->dict:

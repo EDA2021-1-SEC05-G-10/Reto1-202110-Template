@@ -43,7 +43,7 @@ def printMenu():
     print("3 - Consultar n videos con mas views (requerimiento 1)")
     print("4 - Consultar el video que más dias ha sido trending para un pais (requerimiento 2)")
     print("5 - Consultar el video que más dias ha sido trending para una categoria (requerimiento 3)")
-    print("6 - Consultar n videos con mas likes en un país con un tag especifico (requerimiento 4)")
+    print("6 - Consultar n videos con mas likes (requerimiento 4)")
 
 def initCatalog(b):
     """
@@ -156,9 +156,11 @@ while True:
     
     elif int(inputs[0]) == 6:
         t1 = time.process_time()
-        print("aca se ejecutará el requerimiento4")
+        tag = str(input("ingrese el nombre del tag que desea buscar"))
+        a = controller.req4(tag, catalog['videos'])
+        print(a)
         t2 = time.process_time()
-        print(t2-t1)
+        print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")
 
     else:
         sys.exit(0)

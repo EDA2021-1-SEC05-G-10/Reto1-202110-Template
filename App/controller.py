@@ -80,7 +80,7 @@ def loadCategories():
     return diccionario
 
 def req1(category_name, country, num_vids, lista, categorias):
-    a = model.n_videos(category_name, country, num_vids, lista, categorias)
+    a = model.n_videos_by_category(category_name, country, num_vids, lista, categorias)
     return a 
 
 def req2(category_name, country, num_vids, lista, categorias):
@@ -91,8 +91,8 @@ def req3(category_name, lista, categorias):
     a = model.video_trending_categoria(category_name, lista, categorias)
     return a
 
-def req4(category_name, country, num_vids, lista, categorias):
-    a = model.n_videos(category_name, country, num_vids, lista, categorias)
+def req4(tag, lista):
+    a = model.n_videos_by_tag(tag, lista)
     return a 
 
 def shellsort(catalog):
