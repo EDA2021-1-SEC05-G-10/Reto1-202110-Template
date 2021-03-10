@@ -121,7 +121,33 @@ def n_videos(category_name, country, num_vids, lista, categorias)->list:
                     "publish time": elemento["publish_time"], "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"]})
     return resultado
 
+def video_trending_categoria(category_name, lista, categorias)->dict:
+    resultado = {}
+    for i in categorias:
+        if categorias[i] == category_name:
+            numero_categoria = int(i)
+            
+    iterador = it.newIterator(lista)
+    while it.hasNext(iterador):
+        elemento = it.next(iterador)
+        diccionario_dias = {}
+        aux =[]
+        
+        if numero_categoria == int(elemento['category_id']):
+            contador_dias = 0
+            for i in elemento:
+                if str(elemento(['title']) not in diccionario_dias):
+                    aux.append(diccionario_dias[str(elemento['title'])] = contador_dias)
+                else:
+                    contador_dias += 1
+            else:
+                aux.append(diccionario_dias[elemento['title']] = contador_dias += 1)
+             
 
+    resultado["title"] = titulo
+    resultado["channel_title"] = titulo_canal
+    resultado["category_id"] = numero_categoria
+    resultado["Days"] = dias
 
 
 def catalogo_shellsort(catalog):

@@ -41,8 +41,9 @@ def printMenu():
     print("1- Cargar información en el catálogo")
     print("2- Consultar tiempo de carga de videos")
     print("3 - Consultar n videos con mas views (requerimiento 1)")
-    print("4 - Consultar los videos por categoria")
-
+    print("4 - Consultar el video que más dias ha sido trending para un pais (requerimiento 2)")
+    print("5 - Consultar el video que más dias ha sido trending para una categoria (requerimiento 3)")
+    print("6 - Consultar n videos con mas likes en un país con un tag especifico (requerimiento 4)")
 
 def initCatalog(b):
     """
@@ -140,6 +141,20 @@ while True:
         print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")
 
     elif int(inputs[0]) == 4:
+        t1 = time.process_time()
+        print("aca se ejecutará el requerimiento2")
+        t2 = time.process_time()
+        print(t2-t1)
+
+    elif int(inputs[0]) == 5:
+        t1 = time.process_time()
+        category_name = str(input("ingrese el nombre de la categoria que desea buscar")).translate({ord(c): None for c in string.whitespace})
+        a=controller.req3(category_name, catalog['videos'], loadCategories())
+        print(a)
+        t2 = time.process_time()
+        print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")
+    
+    elif int(inputs[0]) == 6:
         t1 = time.process_time()
         print("aca se ejecutará el requerimiento4")
         t2 = time.process_time()
