@@ -83,8 +83,8 @@ def req1(category_name, country, num_vids, lista, categorias):
     a = model.n_videos_by_category(category_name, country, num_vids, lista, categorias)
     return a 
 
-def req2(category_name, country, num_vids, lista, categorias):
-    a = model.n_videos(category_name, country, num_vids, lista, categorias)
+def req2(country, lista):
+    a = model.video_trending_pais(country, lista,)
     return a 
 
 def req3(category_name, lista, categorias):
@@ -92,7 +92,7 @@ def req3(category_name, lista, categorias):
     return a
 
 def req4(tag, country, num_vids, lista):
-    a = model.n_videos_by_tag(tag, lista)
+    a = model.n_videos_by_tag(tag, country, num_vids, lista)
     return a 
 
 def shellsort(catalog):

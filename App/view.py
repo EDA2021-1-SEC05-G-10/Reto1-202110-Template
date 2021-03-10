@@ -142,14 +142,17 @@ while True:
 
     elif int(inputs[0]) == 4:
         t1 = time.process_time()
-        print("aca se ejecutará el requerimiento2")
+        country = str(input("ingrese el nombre del pais por el que desea buscar"))
+        a = controller.req2(country, catalog['videos'])
+        print(a)
         t2 = time.process_time()
-        print(t2-t1)
+        print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")
+
 
     elif int(inputs[0]) == 5:
         t1 = time.process_time()
         category_name = str(input("ingrese el nombre de la categoria que desea buscar")).translate({ord(c): None for c in string.whitespace})
-        a=controller.req3(category_name, catalog['videos'], loadCategories())
+        a = controller.req3(category_name, catalog['videos'], loadCategories())
         print(a)
         t2 = time.process_time()
         print("El tiempo para ejecutar esta operacion fue de: " +str(t2-t1) + " segundos")

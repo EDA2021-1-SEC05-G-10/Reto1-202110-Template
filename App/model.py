@@ -144,6 +144,41 @@ def n_videos_by_tag(tag, country, num_vids, lista)->list:
                     resultado.append({"title": elemento["title"], "channel title": elemento["channel_title"], 
                     "publish time": elemento["publish_time"], "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"], "tags": elemento["tags"]})
     return resultado
+
+def video_trending_pais(country, lista,)->dict:
+
+    mayor = 0 
+    aux =[] 
+    dict_final = {}      
+    iterador = it.newIterator(lista)
+    contador2 = 0
+    while it.hasNext(iterador):
+        elemento = it.next(iterador)
+        centinela = True  
+        contador = 0     
+
+        if (str(elemento['country'])) == country:
+            while contador < len(aux):
+                if (elemento['title']== aux[contador]["title"]):
+                    aux[contador]["numero de dias"] += 1
+                    centinela = False
+                contador +=1
+
+            if centinela == True:
+                aux.append({"title": elemento["title"], "channel_title": elemento["channel_title"], 
+                "country": elemento["country"], "numero de dias": 1})
+
+    while contador2 < len(aux):
+        if int(aux[contador2]["numero de dias"]) > mayor:
+            dict_final["title"] = aux[contador2]["title"]
+            dict_final["channel_title"] = aux[contador2]["channel_title"]
+            dict_final["country"] = country
+            dict_final["numero de dias"] = aux[contador2]["numero de dias"]
+            mayor = int(aux[contador2]["numero de dias"])
+
+        contador2 +=1
+    return dict_final 
+
 def video_trending_categoria(category_name, lista, categorias)->dict:
     for i in categorias:
         if categorias[i] == category_name:
