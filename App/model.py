@@ -129,7 +129,7 @@ def n_videos_by_tag(tag, country, num_vids, lista)->list:
         elemento = it.next(iterador)
         menor = math.inf
         contador2 = 0
-        if (str(elemento['country']) == country) and str(elemento["tags"]) == tag: 
+        if (str(elemento['country']) == country) and tag in str(elemento["tags"]): 
             if len(resultado) < num_vids:
                 resultado.append({"title": elemento["title"], "channel title": elemento["channel_title"], "publish time": elemento["publish_time"], 
                 "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"], "tags": elemento["tags"]})
