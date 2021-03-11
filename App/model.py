@@ -129,10 +129,10 @@ def n_videos_by_tag(tag, country, num_vids, lista)->list:
         elemento = it.next(iterador)
         menor = math.inf
         contador2 = 0
-        if (str(elemento['tag']) == tag): 
+        if (str(elemento['country']) == country) and str(elemento["tags"]) == tag: 
             if len(resultado) < num_vids:
-                resultado.append({"title": elemento["title"], "channel title": elemento["channel_title"], 
-                "publish time": elemento["publish_time"], "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"], "tags": elemento["tags"]})
+                resultado.append({"title": elemento["title"], "channel title": elemento["channel_title"], "publish time": elemento["publish_time"], 
+                "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"], "tags": elemento["tags"]})
             else:
                 while contador2 < len(resultado):
                     if float(resultado[contador2]["likes"]) < menor:
@@ -141,8 +141,8 @@ def n_videos_by_tag(tag, country, num_vids, lista)->list:
                     contador2 += 1
                 if float(elemento['likes']) > menor:
                     resultado.pop(posicion)
-                    resultado.append({"title": elemento["title"], "channel title": elemento["channel_title"], 
-                    "publish time": elemento["publish_time"], "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"], "tags": elemento["tags"]})
+                    resultado.append({"title": elemento["title"], "channel title": elemento["channel_title"], "publish time": elemento["publish_time"],
+                    "views": elemento["views"], "likes": elemento["likes"], "dislikes": elemento["dislikes"], "tags": elemento["tags"]})
     return resultado
 
 def video_trending_pais(country, lista,)->dict:
